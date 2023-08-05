@@ -1,6 +1,8 @@
 <template>
-  <h2>Cena {{ contador + 1 }}</h2>
-  <button @:click="siguiente">Siguiente ({{ contador + 1 }}/  total)</button>
+  <h2>Cena {{ contador + 1 }}
+    con el rey godo {{ rey }}
+  </h2>
+  <button @:click="siguiente">Siguiente ({{ contador + 1 }}/ {{ total }} )</button>
 </template>
 
 <script setup>
@@ -17,7 +19,12 @@ const siguiente = () => {
     contador.value = 0;
   }
 }
-
+const rey=computed(()=>{
+  const elNombre = productos[contador].nombre.toLowerCase()
+  
+  return elNombre.substring(0, 1).toUpperCase() + elNombre - substring(1)
+  
+})
 </script>
 
 <style scoped></style>
