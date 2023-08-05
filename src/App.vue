@@ -31,7 +31,7 @@ const rey=computed(()=>{
 })
 
 const imagen=computed(()=>{
-  return ruta+productos[contador.value].nombre.toLowerCase()+".png"
+  return `${ruta}${productos[contador.value].nombre.toLowerCase()}.png`
 })
 </script>
 
