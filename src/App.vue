@@ -3,8 +3,8 @@
     con el rey godo {{ rey }}
   </h2>
   <h3 class="precio">Precio: {{ productos[contador].precio }}€</h3>
-  <div class="todosLosDias" v-if="productos[contador].finDeSemana===true">(Solo fines de semana)</div>
-  <div class="soloFinesDeSemana" v-else>(De Lunes a Domingo)</div>
+  <div class="todosLosDias dias" v-if="productos[contador].finDeSemana===true">(Solo fines de semana)</div>
+  <div class="dias soloFinesDeSemana" v-else>(De Lunes a Domingo)</div>
   <img :src="imagen" alt="">
   <button @:click="siguiente">Siguiente ({{ contador + 1 }}/ {{ total }} )</button>
 </template>
@@ -45,6 +45,13 @@ const imagen=computed(()=>{
 .soloFinesDeSemana{
   background-color:red;
 }
-
+.dias{
+  color:white;
+  padding: 4px 17px;
+  font-size: 0.9em;
+  border-radius: 4px;
+  margin: 5px 0 10px;
+  display: inline-block;
+}
 
 </style>
