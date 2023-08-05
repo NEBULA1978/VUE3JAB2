@@ -5,6 +5,11 @@
   <h3 class="precio">Precio: {{ productos[contador].precio }}€</h3>
   <div class="todosLosDias dias" v-if="productos[contador].finDeSemana===true">(Solo fines de semana)</div>
   <div class="dias soloFinesDeSemana" v-else>(De Lunes a Domingo)</div>
+  <div v-if="productos[contador].precio<100" class="oferta">
+    <div>Ahorra un 10% dto:
+    {{ nuevoPrecio }}€</div>
+    <img src="/oferta.jpg" alt="rey godo en descuento"/>
+  </div>
   <img :src="imagen" alt="">
   <button @:click="siguiente">Siguiente ({{ contador + 1 }}/ {{ total }} )</button>
 </template>
@@ -36,6 +41,11 @@ const rey=computed(()=>{
 const imagen=computed(()=>{
   return `${ruta}${productos[contador.value].nombre.toLowerCase()}.png`
 })
+
+const nuevoPrecio=computed(()=>{
+  return Number(productos[contador.value].precio/1.10).toFixed(2)
+})
+
 </script>
 
 <style scoped>
@@ -52,6 +62,11 @@ const imagen=computed(()=>{
   border-radius: 4px;
   margin: 5px 0 10px;
   display: inline-block;
+}
+
+.oferta img{
+  width:65px;
+  margin: 12px 5px;
 }
 
 </style>
