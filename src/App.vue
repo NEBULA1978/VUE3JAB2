@@ -20,9 +20,9 @@ const siguiente = () => {
   }
 }
 const rey=computed(()=>{
-  const elNombre = productos[contador].nombre.toLowerCase()
+  const elNombre = productos[contador.value].nombre.toLowerCase()
   
-  return elNombre.substring(0, 1).toUpperCase() + elNombre - substring(1)
+  return elNombre.substring(0, 1).toUpperCase() + elNombre.substring(1)
   
 })
 </script>
